@@ -1,0 +1,578 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Internship Assignment
+    </title>
+    <meta>
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
+    
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+
+      :root {
+        --primary-bg: linear-gradient(135deg, #1e0533, #110a1f);
+        --accent-color: #8a2be2;
+        --text-color: #ffffff;
+        --text-secondary: #b3b3b3;
+        --gradient-1: linear-gradient(45deg, #726bff, #57b6fe);
+        --gradient-2: linear-gradient(45deg, #8a2be2, #4b0082);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        background: var(--primary-bg);
+        color: var(--text-color);
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-icon {
+        width: 30px;
+        height: 30px;
+        background: var(--gradient-1);
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        color: var(--text-color);
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: 300;
+        transition: color 0.3s ease;
+      }
+
+      nav a:hover {
+        color: var(--accent-color);
+      }
+
+      .button {
+        background: var(--gradient-1);
+        color: var(--text-color);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        transition: transform 0.3s ease;
+      }
+
+      .button:hover {
+        transform: translateY(-3px);
+      }
+    
+      .hero {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 80px 0 0px 20px;
+        position: relative;
+      }
+
+      h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .highlight {
+        background: var(--gradient-2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        position: relative;
+      }
+
+      .highlight::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 100%;
+        height: 3px;
+        background: var(--gradient-1);
+      }
+
+      .subtitle {
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        color: var(--text-secondary);
+      }
+
+      .cta {
+        display: inline-block;
+        background: var(--gradient-1);
+        color: var(--text-color);
+        text-decoration: none;
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: transform 0.3s ease;
+      }
+
+      .cta:hover {
+        transform: translateY(-3px);
+      }
+
+      .main-content {
+        margin-top: 80px;
+        position: relative;
+      }
+      .testimonials {
+        margin-top: 80px;
+        text-align: center;
+      }
+
+      .testimonial-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 40px;
+      }
+
+      .newsletter {
+        margin-top: 80px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        padding: 40px;
+      }
+
+      .newsletter form {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .newsletter input[type="email"] {
+        padding: 10px;
+        border: none;
+        border-radius: 5px 0 0 5px;
+        width: 60%;
+        max-width: 300px;
+      }
+
+      .newsletter button {
+        background: var(--gradient-1);
+        color: var(--text-color);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .newsletter button:hover {
+        transform: translateY(-3px);
+      }
+
+      .background-particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .particle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        animation: float 15s infinite ease-in-out;
+      }
+
+     
+
+      footer {
+        margin-top: 80px;
+        text-align: center;
+        padding: 20px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      footer a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+      }
+
+      footer a:hover {
+        color: var(--text-color);
+      }
+
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        nav {
+          margin-top: 20px;
+        }
+
+        nav a {
+          margin: 10px 20px 10px 0;
+        }
+
+        .feature {
+          flex-basis: calc(50% - 20px);
+        }
+
+        .step,
+        .roadmap-item {
+          flex-basis: 100%;
+        }
+
+        .testimonial {
+          flex-basis: 100%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 36px;
+        }
+
+        .feature {
+          flex-basis: 100%;
+        }
+
+        .newsletter input[type="email"] {
+          width: 100%;
+          border-radius: 5px;
+          margin-bottom: 10px;
+        }
+
+        .newsletter button {
+          width: 100%;
+          border-radius: 5px;
+        }
+      }
+      /* Add these new styles for the book samples section */
+      .book-samples {
+        margin-top: 80px;
+        text-align: center;
+      }
+
+      .samples-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 40px;
+      }
+
+      .book-sample {
+        flex-basis: calc(33.333% - 40px);
+        margin-bottom: 40px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        padding: 20px;
+        transition: transform 0.3s ease;
+      }
+
+      .book-sample:hover {
+        transform: translateY(-10px);
+      }
+
+      .book-cover-1 {
+        width: 200px;
+        height: 300px;
+        margin: 0 auto 20px;
+        background-image: url("https://raw.githubusercontent.com/adarshagupta/trybookai/main/public-assets/paradox.png");
+        background-position: center; /* Centers the image */
+        background-size: 100% 100%; /* Stretches the image to cover 100% of width and height */
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: var(--text-color);
+        font-size: 18px;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .book-cover-2 {
+        width: 200px;
+        height: 300px;
+        margin: 0 auto 20px;
+        background-image: url("https://raw.githubusercontent.com/adarshagupta/trybookai/main/public-assets/mist.png");
+        background-position: center; /* Centers the image */
+        background-size: 100% 100%; /* Stretches the image to cover 100% of width and height */
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: var(--text-color);
+        font-size: 18px;
+        text-align: center;
+        padding: 10px;
+      }
+      .book-cover-3 {
+        width: 200px;
+        height: 300px;
+        margin: 0 auto 20px;
+        background-image: url("https://raw.githubusercontent.com/adarshagupta/trybookai/main/public-assets/ecos.png");
+        background-position: center; /* Centers the image */
+        background-size: 100% 100%; /* Stretches the image to cover 100% of width and height */
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: var(--text-color);
+        font-size: 18px;
+        text-align: center;
+        padding: 10px;
+      }
+
+    
+     
+      .read-more:hover {
+        color: var(--text-color);
+      }
+        #content {
+            display: none;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            animation: fadeIn 0.3s;
+        }
+      
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            animation: slideDown 0.3s;
+        }
+       
+        .close {
+            color: #ffffff;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .close:hover {
+            color: #ffffff;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            outline: none;
+            border-color: #4f46e5;
+        }
+
+        button:hover {
+            background-color: #4338ca;
+        }
+        .switch-link {
+            text-align: center;
+            color: #4f46e5;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: color 0.3s;
+        }
+        .switch-link:hover {
+            color: #4338ca;
+            text-decoration: underline;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #ffffff;
+            text-align: center;
+        }
+ 
+    </style>
+  
+  </head>
+  <body>
+    <div id="preloader">
+      <div class="loader"></div>
+  </div>
+    <div id="three-container"></div>
+    
+    <div class="container">
+      <header>
+        <div class="logo">
+          <div class="logo-icon"></div>
+          <img
+            src="https://raw.githubusercontent.com/adarshagupta/trybookai/main/logo.png"
+            width="50px"
+            alt="BookAI Logo"
+          />BookAI
+        </div>
+        <nav>
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="/api">API</a>
+          <a href="/api#pricing">Price</a>
+          <a href="/api#pricing">Models</a>
+          <a href="javascript:void(0);" id="auth-button">Login / Sign Up</a>
+          <a href="javascript:void(0);" id="profile-button" style="display: none;">Profile</a>
+          <a href="javascript:void(0);" id="logout-button" style="display: none;">Log Out</a>
+      </nav>
+  </header>
+
+  <div id="authModal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2 id="formTitle">Login</h2>
+          <form id="authForm">
+              <input type="email" id="email" placeholder="Email" required>
+              <input type="password" id="password" placeholder="Password" required>
+              <input type="password" id="confirmPassword" placeholder="Confirm Password" style="display: none;" required>
+              <button type="submit" id="submitButton">Login</button>
+          </form>
+          <div class="switch-link" id="switchLink">Don't have an account? Sign up</div>
+      </div>
+  </div>
+      <section class="hero">
+        <h1>
+          Explore the Possibilities of
+          <span class="highlight">AI Book Writing</span> with BookAI
+        </h1>
+        <p class="subtitle">
+          Unleash the power of AI to create captivating books in minutes.
+          Download, Distribute wherever you want. Generate unlimited free books
+        </p>
+        <a href="/playground" class="cta">Get Started</a>
+        <a href="/api" class="cta">Get API Access</a>
+        <br>
+        <br/>
+        <p style="color: yellow;"><span>Attention:</span>TryBookAI has been acquired by Indicus AI. Indicus LLM will be used for text and image generation</p>
+
+      </section>
+      <section class="book-samples">
+        <h2>Sample Books Generated by BookAI</h2>
+        <p>
+          Explore some of the captivating books created using our AI technology.
+        </p>
+        <div class="samples-container">
+          <div class="book-sample">
+            <div class="book-cover-1"></div>
+            <h3>Science Fiction</h3>
+            <p class="book-excerpt">
+              "As Dr. Elara stepped through the shimmering portal, she knew
+              there was no turning back. The fate of two universes now rested in
+              her hands..."
+            </p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+          <div class="book-sample">
+            <div class="book-cover-2"></div>
+            <h3>Mystery</h3>
+            <p class="book-excerpt">
+              "The old lighthouse stood silent, its beacon long extinguished.
+              But on foggy nights, some swore they could still see its ghostly
+              light..."
+            </p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+          <div class="book-sample">
+            <div class="book-cover-3"></div>
+            <h3>Fantasy</h3>
+            <p class="book-excerpt">
+              "The ancient prophecy spoke of a child born with starlight in
+              their eyes. As the comet blazed overhead, the kingdom held its
+              breath..."
+            </p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+      </section>
+      <section class="newsletter">
+        <h2>Stay Updated</h2>
+        <p>
+          Subscribe to our newsletter for the latest AI writing tips and BookAI
+          updates.
+        </p>
+        <form>
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </section>
+
+      <footer>
+        <p>&copy; 2024 BookAI. All rights reserved.</p>
+        <div>
+          <a href="#">Terms of Service</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
